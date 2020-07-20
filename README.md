@@ -1,68 +1,111 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="https://i.ibb.co/SXP3wGw/earthly-remedies.png">
+<br />
 
-## Available Scripts
+#### By Tyler Bates, Julia Seidman, KhanSahab Khakwan
+<hr/>
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+A React Web application for natural remedies. <br>
+The user signs in and is able to access a natural remedies API, they can upload edit and delete their own submissions or search for existing remedies.
+<hr />
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Component Diagrams
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<img src="https://i.ibb.co/9c2vqcz/er-diagram.jpg">
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+<hr/>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Logistics
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+||Minimum Product Features|
+|-----|-----|
+| :heavy_check_mark: |User can register|
+| :heavy_check_mark: |User can log in with registered email and password|
+| :heavy_check_mark: |User can log out from navigation menu|
+| :heavy_check_mark: |User can access the projects github repository from navigation menu|
+|  |User can view a list of all existing remedies in database|
+|  |User can create new remedy via form submission|
+|  |User can edit uploaded remedy|
+|  |User can delete uploaded remedy|
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br/>
+<br/>
 
-### `npm run eject`
+||Stretch Goals|
+|-----|-----|
+| :heavy_check_mark: |Clean, Responsive UI|
+|  |User can search remedy database by keyword|
+|  |Client and Database are both hosted|
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<hr />
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Setup/Installation Requirements
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Clone this projects repository into your local directory following [these](https://www.linode.com/docs/development/version-control/how-to-install-git-and-clone-a-github-repository/) instructions.
 
-## Learn More
+2. Open the now local project folder with [VSC](https://code.visualstudio.com/Download) or an equivalent
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Navigate to the project directory from your terminal by entering the following:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+$ cd ~/er-react
+```
+4. Within the projects directory install all required dependencies with
+```
+$ npm install
+```
+5. Run the application to view in your browser with
+```
+$ npm run start
+```
 
-### Code Splitting
+>If the browser does not automatically launch, view the project [here](https://localhost:3000)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+<hr/>
 
-### Analyzing the Bundle Size
+## Known Bugs
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### There are no known bugs at this time
+If you have a bug or an idea, browse the open issues before opening a new one. You can also take a look at the [Open Source Guide](https://opensource.guide/).
 
-### Making a Progressive Web App
+<hr/>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Technologies Used
 
-### Advanced Configuration
+- JavaScript
+- C#
+- .NET Core
+- Firebase
+- Firestore
+- React
+- Thunk
+- Redux
+- Reactstrap
+- Bootstrap
+- HTML
+- CSS
+- Git
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+<hr/>
 
-### Deployment
+## Legal
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+#### Apache License V2.0
 
-### `npm run build` fails to minify
+Copyright 2020 Tyler Bates, Julia Seidman, KhanSahab Khakwan @ Epicodus
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
