@@ -23,13 +23,17 @@ class Remedies extends React.Component {
       return (
         <React.Fragment>
           <h1>Remedies</h1>
+          {console.log("i am in rendering")}
+
+
+          {console.log(remedies)}
           <ul>
-            {remedies.map((remedy, index) =>
+            {/* {remedies.map((remedy, index) =>
               <li key={index}>
                 <h3>{remedy.name}</h3>
                 <p>{remedy.abstract}</p>
               </li>
-            )}
+            )} */}
           </ul>
         </React.Fragment>
       );

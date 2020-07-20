@@ -17,12 +17,14 @@ export const getRemediesFailure = (error) => ({
 export const makeApiCall = () => {
   return dispatch => {
     dispatch(requestRemedies);
-    return fetch(`https://prime.exchangerate-api.com/v5/${process.env.API_KEY}/latest/USD`)
+    // console.log(`${process.env.REACT_APP_API_KEY}`);
+    return fetch(`https://prime.exchangerate-api.com/v5/${process.env.REACT_APP_API_KEY}/latest/USD`)
       .then(response => response.json())
       .then(
-        (jsonifiedResonse) => {
-          dispatch(getRemediesSuccess(jsonifiedResonse.results));
-          console.log(jsonifiedResonse.results);
+        (jsonifiedResponse) => {
+          dispatch(getRemediesSuccess(jsonifiedResponse.conversion_rates));
+          // console.log("i am in success");
+          console.log(jsonifiedResponse.conversion_rates);
         })
       .catch((error) => {
         dispatch(getRemediesFailure(error));
