@@ -10,11 +10,14 @@ class Remedies extends React.Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(makeApiCall());
-    console.log("i am in calling");
   }
+
 
   render() {
     const { error, isLoading, remedies } = this.props;
+    //let myKeys = Object.keys(remedies); // [1,2,3]
+    //let myValues = Object.values(remedies); // ['red','blude]
+    let myEntries = Object.entries(remedies); // [[1, 'red'], [2,'blude']]
     if (error) {
       return <React.Fragment>Error: {error.message}</React.Fragment>;
     } else if (isLoading) {
@@ -24,16 +27,9 @@ class Remedies extends React.Component {
         <React.Fragment>
           <h1>Remedies</h1>
           {console.log("i am in rendering")}
-
-
-          {console.log(remedies)}
           <ul>
-            {/* {remedies.map((remedy, index) =>
-              <li key={index}>
-                <h3>{remedy.name}</h3>
-                <p>{remedy.abstract}</p>
-              </li>
-            )} */}
+            {/*{myKeys.map((key, index) => <li>Currency: {key}  Rate : {myValues[index]}</li>)}*/}
+            {myEntries.map((entry, index) => <li key={index}>Currency: {entry[0]}  Rate : {entry[1]}</li>)}
           </ul>
         </React.Fragment>
       );
