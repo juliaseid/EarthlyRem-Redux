@@ -1,18 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
 import App from './../src/components/App';
+import { createFirestoreInstance } from 'redux-firestore';
 import { createStore, applyMiddleware } from 'redux';
+import 'firebase/auth';
+import firebase from "./firebase";
+import middleWareLogger from './middleware/middleware-logger';
+import { Provider } from 'react-redux';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import reducer from './reducers/remedies-reducer';
 import thunkMiddleware from 'redux-thunk';
-import { Provider } from 'react-redux';
-import middleWareLogger from './middleware/middleware-logger';
 
 const store = createStore(reducer, applyMiddleware(thunkMiddleware, middleWareLogger));
 
+const rrfProps = {
+  firebase,
+  config: {
+    userProfile: 'users',
+    useFirestoreForProfile: true,
+  },
+  dispatch: store.dispatch,
+  createFirestoreInstance
+}
+
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ReactReduxFirebaseProvider {...rrfProps}>
+      <App />
+    </ReactReduxFirebaseProvider>
   </Provider>,
   document.getElementById('root')
 );
