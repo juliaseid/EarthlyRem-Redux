@@ -7,6 +7,7 @@ let initialState = {
 }
 
 export default (state = initialState, action) => {
+  const { name, details, ailment, category, ingredients, id } = action;
   switch (action.type) {
     case c.REQUEST_REMEDIES:
       return Object.assign({}, state, {
@@ -23,6 +24,23 @@ export default (state = initialState, action) => {
         isLoading: false,
         error: action.error
       });
+
+    case c.ADD_REMEDY:
+      return Object.assign({}, state, {
+        [id]: {
+          name: name,
+          details: details,
+          ailment: ailment,
+          category: category,
+          ingredients: ingredients,
+          id: id
+        }
+      });
+
+    // case c.DELETE_REMEDY:
+    //   const newState = { ...state };
+    //   delete newState[id];
+    //   return newState;
 
     default:
       return state;

@@ -14,6 +14,15 @@ export const getRemediesFailure = (error) => ({
   error
 });
 
+export const deleteRemedy = id => ({
+  type: c.DELETE_REMEDY,
+  id
+});
+
+export const toggleForm = () => ({
+  type: c.TOGGLE_FORM
+});
+
 export const makeApiCall = () => {
   return dispatch => {
     dispatch(requestRemedies);
@@ -28,6 +37,18 @@ export const makeApiCall = () => {
       .catch((error) => {
         dispatch(getRemediesFailure(error));
       });
+  }
+}
 
+export const addRemedy = (remedy) => {
+  const { remedyName, details, ailment, category, ingredients, id, } = remedy;
+  return {
+    type: c.ADD_REMEDY,
+    name: remedyName,
+    details: details,
+    ailment: ailment,
+    category: category,
+    ingredients: ingredients,
+    id: id
   }
 }

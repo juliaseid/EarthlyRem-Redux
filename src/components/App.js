@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import Remedies from './Remedies';
+import Remedies from './RemediesControl';
 
 function App() {
   return (
