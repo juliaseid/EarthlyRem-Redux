@@ -17,10 +17,19 @@ class Remedies extends React.Component {
     const { error, isLoading, remedies } = this.props;
     //let myKeys = Object.keys(remedies); // [1,2,3]
     //let myValues = Object.values(remedies); // ['red','blude]
-    let allRemedies = Object.entries(remedies); // [[1, 'red'], [2,'blude']]
-
+    // let allRemedies = Object.entries(remedies); // [[1, 'red'], [2,'blude']]
+    let allRemedies = remedies.map(function (obj) {
+      return Object.values(obj)
+    })
     //remedies is an array of objects - is allRemedies doing what we want? I think not b/c it is treating remedies as an object
     //however, the good news is that i think we can just remedies.map directly instead of what we're doing
+
+    // var output = input.map(function(obj) {
+    //   return Object.keys(obj).sort().map(function(key) { 
+    //     return obj[key];
+    //   });
+    // });
+
 
     if (error) {
       return <React.Fragment>Error: {error.message}</React.Fragment>;
