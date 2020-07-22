@@ -13,26 +13,22 @@ const splashStyles = {
   marginTop: '20%',
 }
 
-// class Remedies extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       selectedRemedy: null,
-//       editing: false
-//     }
-//   }
-
 export default function Remedies(props) {
 
   const [selectedRemedy, setSelectedRemedy] = useState(null);
   const [editing, setEditing] = useState(false);
   const [formVisibleOnPage, setFormVisibleOnPage] = useState(false);
 
+  // componentDidMount() {
+  //   const { dispatch } = this.props;
+  //   dispatch(makeApiCall())
+  // };
+  //This needs to be refactored with useEffect() - componentDidMount does not work in functional components
 
-  componentDidMount() {
+  useEffect(() => {
     const { dispatch } = this.props;
-    dispatch(makeApiCall());
-  }
+    dispatch(makeApiCall())
+  }, [])
 
   handleClick = () => {
     if (selectedRemedy != null) {
@@ -50,6 +46,7 @@ export default function Remedies(props) {
     }
   };
 
+  //this needs to be updated to include api call & method
   handleAddingNewRemedyToList = (newRemedy) => {
     const { dispatch } = this.props;
     const action = a.addRemedy(newRemedy);
@@ -65,12 +62,11 @@ export default function Remedies(props) {
     setSelectedRemedy(preSelectedRemedy);
   }
 
-
   handleEditClick = () => {
     //this.setState({ editing: true });
     setEditing(true);
   }
-
+  //this method needs to be updated to include api call & method
   handleEditingRemedyInList = (remedyToEdit) => {
     const { dispatch } = this.props;
     const action = a.addRemedy(remedyToEdit);
@@ -83,6 +79,7 @@ export default function Remedies(props) {
     // });
   }
 
+  //this method needs to be updated to include api call & method
   handleDeletingRemedy = (id) => {
     const { dispatch } = this.props;
     const action = a.deleteRemedy(id);
@@ -90,16 +87,12 @@ export default function Remedies(props) {
     //this.setState({ selectedRemedy: null });
     setSelectedRemedy(null);
   }
-
+  //what is wrong here? Something is making it not work and it probably has to do with turning it into a functional component b/c that's when it broke
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
     const auth = this.props.firebase.auth();
-    // const { error, isLoading } = this.props;
 
-    // let allRemedies = remedies.map(function (obj) {
-    //   return Object.values(obj)
-    // })
     if (isLoaded(auth) && auth.currentUser == null) {
       console.log(auth.currentUser, 'user returning null');
       return (
@@ -114,8 +107,7 @@ export default function Remedies(props) {
           </h6>
         </div>
       );
-    }
-    if (isLoaded(auth) && auth.currentUser != null) {
+    } else if (isLoaded(auth) && auth.currentUser != null) {
       if (this.props.error) {
         return <React.Fragment>Error: {error.message}</React.Fragment>;
       } else if (this.props.isLoading) {
@@ -138,18 +130,20 @@ export default function Remedies(props) {
           currentlyVisibleState = <RemedyList remedies={this.props.masterRemediesList} onRemedySelection={this.handleChangingSelectedRemedy} />
           buttonText = "Add Remedy";
         }
-        return (
-          <React.Fragment>
-            {currentlyVisibleState}
-            <button className="contlBtn" onClick={this.handleClick}>
-              {buttonText}
-            </button>
-          </React.Fragment>
-        );
-      };
+      }
+      return (
+        <React.Fragment>
+          {currentlyVisibleState}
+          <button className="contlBtn" onClick={this.handleClick}>
+            {buttonText}
+          </button>
+        </React.Fragment>
+      );
     };
-  };
+  }
 };
+
+
 
 RemedyControl.propTypes = {
   masterRemediesList: PropTypes.object
