@@ -9,10 +9,10 @@ import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
-import reducer from './reducers/remedies-reducer';
+// import reducer from './reducers/remedies-reducer';
 import thunkMiddleware from 'redux-thunk';
 
-const store = createStore(reducer, applyMiddleware(thunkMiddleware, middleWareLogger));
+const store = createStore(applyMiddleware(thunkMiddleware, middleWareLogger));
 
 const rrfProps = {
   firebase,

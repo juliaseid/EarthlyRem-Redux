@@ -9,6 +9,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+button.searchButton {
+  height: 43px;
+}
+
+form.form-inline{
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

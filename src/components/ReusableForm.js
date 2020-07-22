@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Form } from 'react-bootstrap';
 import PropTypes from "prop-types";
-import Dropdown from "react-dropdown";
+// import Dropdown from "react-dropdown";
 
 const ReusableFormStyle = {
   marginTop: "2%",
@@ -12,7 +12,10 @@ const ReusableFormStyle = {
 };
 
 function ReusableForm(props) {
-  const categories = ["GI", "respiratory", "skin", "eyes", "hair", "musculoskeletal", "endocrine", "chakra", "pineal", "lymphatic", "cardiovascular", "digestive", "nervous", "reproductive"]
+  // const categories = ["GI", "respiratory", "skin", "eyes", "hair", "musculoskeletal", "endocrine", "chakra", "pineal", "lymphatic", "cardiovascular", "digestive", "nervous", "reproductive"]
+
+  //function here sets value to otion selected
+
   return (
     <div style={ReusableFormStyle}>
       <Form onSubmit={props.formSubmissionHandler}>
@@ -23,11 +26,12 @@ function ReusableForm(props) {
             placeholder='Remedy Name' />
         </Form.Group>
         <Form.Group>
-          <Dropdown
+          <Form.Control
+            type='text'
             name='category'
-            options={categories}
-            onChange={this._onSelect}
-            value="Select Category:" />
+            // options={categories}
+            // onChange={onSelect}
+            placeholder="Category" />
         </Form.Group>
         <Form.Group>
           <Form.Control
@@ -42,8 +46,9 @@ function ReusableForm(props) {
             placeholder='Ingredients' />
         </Form.Group>
         <Form.Group>
-          <textarea
-            name='description'
+          <Form.Control
+            type='text'
+            name='details'
             placeholder='Remedy description/details:' />
         </Form.Group>
         <br /><br />

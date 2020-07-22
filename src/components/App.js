@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './Header';
 import React from 'react';
-import { Remedies } from './RemediesControl';
+import Remedies from './RemediesControl';
 import SignIn from './SignIn';
 
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import Remedies from './RemediesControl';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase/app';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
@@ -28,8 +29,8 @@ function Header() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link><Link className="homeLink" to="/">Home</Link></Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item>Remedy List</NavDropdown.Item>
+            <NavDropdown title="Menu" id="basic-nav-dropdown">
+              <NavDropdown.Item onClick={Remedies.handleClick}>Remedy List</NavDropdown.Item>
               <NavDropdown.Item>Add Remedy</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item onClick={doSignOut}>Sign Out</NavDropdown.Item>

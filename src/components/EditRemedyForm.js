@@ -3,16 +3,16 @@ import ReusableForm from "./ReusableForm";
 import PropTypes from "prop-types";
 
 function EditRemedyForm(props) {
-  const { remedy } = props;
+  const { onEditRemedy, remedy } = props;
 
   function handleEditRemedyFormSubmission(event) {
     event.preventDefault();
-    props.onEditRemedy(
+    onEditRemedy(
       {
         name: event.target.name.value,
         category: event.target.category.value,
         ailment: event.target.ailment.value,
-        description: event.target.description.value,
+        details: event.target.details.value,
         ingredients: event.target.ingredients.value,
         id: remedy.id
       });
